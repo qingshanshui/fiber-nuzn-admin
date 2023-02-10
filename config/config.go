@@ -3,16 +3,19 @@ package config
 import (
 	"flag"
 	"fmt"
+	"os"
+
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
-	"os"
 )
 
 func init() {
 	var mode string
-	flag.StringVar(&mode, "mode", "dev", "开发dev，生产prod")
+	// flag.StringVar(&mode, "mode", "dev", "开发dev，生产prod")
+	flag.StringVar(&mode, "mode", "prod", "开发dev，生产prod")
 	flag.Parse()
 	workDir, _ := os.Getwd()
+	fmt.Println(mode)
 	viper.SetConfigName("config." + mode)    // 配置文件名称
 	viper.SetConfigType("yml")               // 配置文件类型
 	viper.AddConfigPath(workDir + "/config") // 配置文件路径

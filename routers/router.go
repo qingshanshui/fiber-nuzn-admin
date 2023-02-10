@@ -2,6 +2,7 @@ package routers
 
 import (
 	v1 "fiber-nuzn-api/controllers/v1"
+	"fiber-nuzn-api/middleware"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -21,7 +22,7 @@ func SetRoute(app *fiber.App) {
 		loginRouter.Post("/", login.Login)               // 登录
 		loginRouter.Post("/userinfo", login.GetUserInfo) //获取用户信息
 	}
-	//v1.Use(middleware.Disable)
+	Appv1.Use(middleware.Disable)
 	// rbac 权限相关
 	{
 		// 用户
