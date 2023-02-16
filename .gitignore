@@ -19,3 +19,9 @@ bin-release/
 # information for Eclipse / Flash Builder.
 fiber-nuzn-api.rar
 main
+tmp/*
+/.idea
+/tmp
+/*.gz
+/.gitee
+/logs

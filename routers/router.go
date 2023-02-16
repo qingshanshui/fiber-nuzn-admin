@@ -9,11 +9,6 @@ import (
 
 func SetRoute(app *fiber.App) {
 
-	main := v1.NewDefaultController()
-	group := app.Group("/v1")
-	group.Get("/getList", main.GetList)    // 列表
-	group.Post("/category", main.Category) // 详情
-
 	Appv1 := app.Group("/v1/basic")
 	// 登录相关的
 	loginRouter := Appv1.Group("/login")
@@ -22,6 +17,8 @@ func SetRoute(app *fiber.App) {
 		loginRouter.Post("/", login.Login)               // 登录
 		loginRouter.Post("/userinfo", login.GetUserInfo) //获取用户信息
 	}
+
+	// 以下路由需要权限
 	Appv1.Use(middleware.Disable)
 	// rbac 权限相关
 	{

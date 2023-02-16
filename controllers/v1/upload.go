@@ -33,11 +33,11 @@ func (t *UploadController) SaveUpload(ctx *fiber.Ctx) error {
 	// 拼接文件路径
 	err, pathDir := Mkdir(extName, "")
 	if err != nil {
-		return ctx.JSON(t.Fail("创建文件路径失败"))
+		return ctx.JSON(t.Fail(err))
 	}
 	// 保存文件
 	if err := ctx.SaveFile(file, pathDir); err != nil {
-		return ctx.JSON(t.Fail("文件保存失败"))
+		return ctx.JSON(t.Fail(err))
 	}
 	return ctx.JSON(t.Ok(pathDir))
 }

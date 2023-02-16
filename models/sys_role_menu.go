@@ -14,13 +14,6 @@ type SysRoleMenu struct {
 	RoleUid string `json:"roleUid"`
 }
 
-// // TableName 重命名表
-//
-//	func (u *SysRoleMenu) TableName() string {
-//		return "sys_role_menu"
-//	}
-//
-
 // NewSysRoleMenu new一个空的结构体
 func NewSysRoleMenu() *SysRoleMenu {
 	return &SysRoleMenu{}
