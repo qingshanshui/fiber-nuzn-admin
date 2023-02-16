@@ -11,6 +11,7 @@ import (
 
 func init() {
 	var mode string
+	// 因为 build 没办法  -mode=prod
 	flag.StringVar(&mode, "mode", "dev", "开发dev，生产prod") // 开发环境
 	// flag.StringVar(&mode, "mode", "prod", "开发dev，生产prod") // 生产环境
 	flag.Parse()
